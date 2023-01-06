@@ -1,5 +1,5 @@
 <%@ page import="java.util.Date" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%!
     void printOnConsole(Object obj) {
         System.out.println(obj);
