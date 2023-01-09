@@ -1,6 +1,7 @@
 <%@ page import="domain.members.dtos.InfoMemberDTO" %>
 <%@ page import="domain.members.dtos.AuthorizeMemberDTO" %>
-<%@ page import="domain.members.dao.MemberDAO" %><%--
+<%@ page import="domain.members.dao.MemberDAO" %>
+<%@ page import="domain.members.exceptions.InvalidParameterException" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 2023-01-06
@@ -19,6 +20,7 @@
     if (sessionInfo == null) {
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
+        if (id == null || pw == null) throw new InvalidParameterException();
         AuthorizeMemberDTO auth = new AuthorizeMemberDTO(id, pw);
         InfoMemberDTO info = dao.getMemberInfo(auth);
         session.setAttribute("info", info);

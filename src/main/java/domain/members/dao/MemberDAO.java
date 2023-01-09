@@ -1,10 +1,7 @@
 package domain.members.dao;
 
 import connection.DataSourceProvider;
-import domain.members.dtos.AuthorizeMemberDTO;
-import domain.members.dtos.InfoMemberDTO;
-import domain.members.dtos.MemberDTO;
-import domain.members.dtos.UpdateMemberDTO;
+import domain.members.dtos.*;
 import domain.members.exceptions.IncorrectPasswordException;
 import domain.members.exceptions.MemberNotFoundException;
 
@@ -18,7 +15,7 @@ public class MemberDAO {
     private static DataSource source;
     private final int COUNT_PER_PAGE = 3;
 
-    private MemberDAO() {
+    public MemberDAO() {
         source = DataSourceProvider.getSource();
     }
 
@@ -51,16 +48,16 @@ public class MemberDAO {
         }
     }
 
-    public void createMember(MemberDTO dto) throws SQLException {
+    public void createMember(MemberDTOClass dto) throws SQLException {
         String sql = "INSERT INTO member (id, pw, name, email, phone, address, indate) VALUES (?,?,?,?,?,?,now())";
         try (Connection con = source.getConnection();
              PreparedStatement pt = con.prepareStatement(sql)) {
-            pt.setString(1, dto.id());
-            pt.setString(2, dto.pw());
-            pt.setString(3, dto.name());
-            pt.setString(4, dto.email());
-            pt.setString(5, dto.phone());
-            pt.setString(6, dto.address());
+            pt.setString(1, dto.getId());
+            pt.setString(2, dto.getPw());
+            pt.setString(3, dto.getName());
+            pt.setString(4, dto.getEmail());
+            pt.setString(5, dto.getPhone());
+            pt.setString(6, dto.getAddress());
             pt.execute();
         }
 
