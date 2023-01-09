@@ -4,6 +4,7 @@
     <title>Req1</title>
 </head>
 <body>
+<jsp:include page="../../common/top.jsp"/>
 <% if (session.getAttribute("info") != null) {%>
 <jsp:forward page="../views/info.jsp"/>
 <%}%>
@@ -18,7 +19,6 @@
     </div>
     <input type="submit">
 </form>
-
-
+<jsp:include page="../../common/bottom.jsp"/>
 </body>
 </html>
