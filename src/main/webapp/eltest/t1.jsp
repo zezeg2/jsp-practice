@@ -11,7 +11,16 @@
     <title>Title</title>
 </head>
 <body>
-<h1><%=%>request.getParameter("name").length()%></h1>
-<h1>${param.name.length()}</h1>
+<form action="">
+    아이디 입력 :<input type="text"><br>
+    패스원드 입력 : <input type="password"><br>
+    <select name="lunch" id="" multiple>
+        <option value="ko">한식</option>
+        <option value="ch">중식</option>
+        <option value="jp">일식</option>
+        <option value="west">양식</option>
+        <option value="asia">동남아식</option>
+    </select>
+</form>
 </body>
 </html>

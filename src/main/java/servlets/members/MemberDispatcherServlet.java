@@ -1,7 +1,5 @@
 package servlets.members;
 
-import domain.members.exceptions.InvalidParameterException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;

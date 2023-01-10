@@ -14,6 +14,7 @@
 <jsp:useBean id="dto" class="domain.members.dtos.MemberDTOClass" scope="request"/>
 <jsp:setProperty name="dto" property="*"/>
 <jsp:useBean id="dao" class="domain.members.dao.MemberDAO" scope="request"/>
+
 <html>
 <head>
     <title>Title</title>

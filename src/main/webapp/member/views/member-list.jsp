@@ -6,7 +6,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%! MemberDAO dao = MemberDAO.getInstance();%>
 <%--<%! List<InfoMemberDTO> list;%>--%>
-<jsp:useBean id="memberList" class="java.util.ArrayList" scope="request"/>
+<jsp:useBean id="memberList" class="java.util.ArrayList" type="java.util.ArrayList<domain.members.dtos.InfoMemberDTO>"
+             scope="request"/>
 <html>
 <head>
     <title>Admin | MemberList</title>
@@ -14,7 +15,7 @@
 <body>
 <%
     try {
-        memberList = new ArrayList(dao.getAllMemberInfo(request.getParameter("page") == null ? (int) request.getAttribute("page"): Integer.parseInt(request.getParameter("page"))));
+        memberList = new ArrayList(dao.getAllMemberInfo(request.getParameter("page") == null ? (int) request.getAttribute("page") : Integer.parseInt(request.getParameter("page"))));
     } catch (SQLException e) {
         throw new RuntimeException(e);
     }
